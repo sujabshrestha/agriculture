@@ -1,0 +1,18 @@
+{% extends 'customer/base1.html' %}
+{% block title %}
+Register as Seller
+{% endblock %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <div class="container">
+        <h1 style="margin-left: -10%;">Register as seller</h1>
+        <div class="container" style="margin-left: -10%;">
+            <form action="" method="POST">
+                {% csrf_token%}
+                {{ form|crispy }}
+                <button type="submit" class="btn btn-primary">Register</button>
+            </form>
+        </div>
+        
+    </div>
+{% endblock %}

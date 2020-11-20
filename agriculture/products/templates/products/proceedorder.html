@@ -1,0 +1,70 @@
+{% extends 'customer/base1.html' %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-12">
+            <div class="proceedbanner">
+                
+                <div class="container">
+                    <h2>Proceed To Order</h2>
+                    <div class="col-md-6" style="float: left;">
+                        <div class="proceed">
+                            <form action="{% url 'proceed' %}" method="POST">
+                                {% csrf_token %}
+                                <label for="">Delivery Address</label>
+                                <input type="text" name="deliveryaddress" class="form-control">
+                                <label for="">Phone Number</label>
+                                <input type="text" name="phone" class="form-control">
+                                <input type="hidden" name="prodid" value="{{prodid}}" class="form-control">
+                                <input type="hidden" name="price" value="{{price}}" class="form-control">
+                                <input type="hidden" name="packet" value="{{packet}}" class="form-control">
+                                <input type="hidden" name="total" value="" id="total" class="form-control">
+                                <p>if already set then click next else please fill up delivery address and phone number</p>
+                
+                                <button type="submit" name="submit" class="btn btn-success" id="nextbutton">Next</button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-md-6" style="float: left;">
+                        <div class="proceed">
+                            <span class="ptitle">
+                                {{ prodname }}
+                            </span>
+                            <hr style="float: left;width: 100%;">
+                            <span class="psubtotal">
+                                <span class="ptext">
+                                    subtotal ( {{ packet }}packets )
+                                </span>
+                                <span class="pprice">
+                                    RS <input id="sprice" type="text" name="sprice" value="{{price}}" readonly>
+                                       
+                                    
+                                </span>                               
+                            </span>
+                            <span class="pdelivery">
+                                <span class="ptext">
+                                    Delivery Charge 
+                                </span>
+                                <span class="pprice"> 
+                                    RS <input id="dprice" type="text" name="sprice" value="100" readonly>
+                                        
+                                    
+                                </span>                               
+                            </span>
+                            <hr style="float: left;width: 100%;">
+                            <span class="ptotal">
+                                <span class="ptext1">
+                                    Total
+                                </span>
+                                <span class="pprice1">
+                                    RS <input type="text" name="sprice" id="tprice" value="" readonly>
+                                      
+                                    
+                                </span>                               
+                            </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
