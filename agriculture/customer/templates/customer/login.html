@@ -6,11 +6,12 @@ Login as Customer
 
 {% block content %} 
 {% if messages %}
+{% for m in messages %}
 <div class="alert alert-success" role="alert">
-    {% for m in messages %}
+    
       {{m}}
-    {% endfor %}   
-</div>
+    </div>
+{% endfor %}   
 {% endif %}
     <div class="container mt-5">
         <h1>Login as Customer</h1>

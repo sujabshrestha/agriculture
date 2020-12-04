@@ -25,10 +25,6 @@ urlpatterns = [
     path('seller/', include('seller.urls')),
     path('products/', include('products.urls')),
     path('discussion/', include('discussion.urls')),
-<<<<<<< HEAD
-    
-=======
->>>>>>> bd68e1e04c58b2beb0a87d627eb6d65a51cae218
 
 ]
 
