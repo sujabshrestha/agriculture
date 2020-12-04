@@ -30,12 +30,13 @@ Update Product
         <div class="container">
             <div class="addproduct">
                 <form  method="POST" action="/seller/updateproduct/{{product.id}}/"  enctype="multipart/form-data">
-                    <div class="alert alert-success" role="alert">
-                        {% for m in messages %}
-                          {{m}}
-                        {% endfor %}   
-                    </div>
                     {% csrf_token %}
+                    {% for m in messages %}
+                    <div class="alert alert-success" role="alert"> 
+                          {{m}}
+                    </div>
+                    {% endfor %}   
+                    
                     <span>
                         <label for="title" >Title</label>
                         <input type="text" id="title" name='title' class="form-control">
