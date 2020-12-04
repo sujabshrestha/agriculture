@@ -30,14 +30,12 @@ def home(request):
     allprods.append([products,range(1,n)])
 
     mostorder = [] 
-  
     orderproduct = Order.objects.all()
     for o in orderproduct:
         pid = o.product_id 
         if 'prod_id' in request.session:
             p_id = request.session['prod_id']
-            if pid != p_id:
-               
+            if pid != p_id: 
                 mostprod = Product.objects.filter(id = pid).order_by('-id')
                 page = request.GET.get('page',1)
                 paginator = Paginator(mostprod,8)
@@ -55,7 +53,6 @@ def home(request):
              
 
         else:
-          
             mostprod = Product.objects.filter(id = pid).order_by('-id')
             page = request.GET.get('page',1)
             paginator = Paginator(mostprod,8)
@@ -68,8 +65,8 @@ def home(request):
             m = len(mostproducts)
             mostorder.append([mostproducts,range(1,m)])  
             request.session['prod_id']=pid
-    del request.session['prod_id']
-    request.session.modified = True
+        del request.session['prod_id']
+        request.session.modified = True
     context = {
         'seller':seller,
         'products': allprods,
