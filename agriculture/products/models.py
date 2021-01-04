@@ -3,6 +3,7 @@ from PIL import Image
 from django.utils import timezone
 from django.urls import reverse
 from django.contrib.auth.models import User
+from customer.models import Customer
 # Create your models here.
 
 class Category(models.Model):
@@ -13,6 +14,7 @@ class Category(models.Model):
 
 
 class Product(models.Model):
+    product = models.ForeignKey(Customer,on_delete=models.CASCADE)
     title = models.CharField(max_length=30)
     p_type = models.CharField(max_length=900,default='')
     p_area = models.CharField(max_length=900,default='',blank=True)
